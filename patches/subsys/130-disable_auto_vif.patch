@@ -1,6 +1,6 @@
 --- a/net/mac80211/main.c
 +++ b/net/mac80211/main.c
-@@ -1579,24 +1579,6 @@ int ieee80211_register_hw(struct ieee802
+@@ -1581,24 +1581,6 @@ int ieee80211_register_hw(struct ieee802
  	debugfs_hw_add(local);
  	rate_control_add_debugfs(local);
  

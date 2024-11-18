@@ -24,7 +24,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  ccflags-y += -DDEBUG
 --- a/net/mac80211/chan.c
 +++ b/net/mac80211/chan.c
-@@ -538,8 +538,6 @@ static void _ieee80211_change_chanctx(st
+@@ -540,8 +540,6 @@ static void _ieee80211_change_chanctx(st
  	WARN_ON(ieee80211_chanctx_refcount(local, ctx) > 1 &&
  		!cfg80211_chandef_compatible(&ctx->conf.def, &chanreq->oper));
  
@@ -33,7 +33,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  	if (!cfg80211_chandef_identical(&ctx->conf.def, &chanreq->oper)) {
  		if (ctx->conf.def.width != chanreq->oper.width)
  			changed |= IEEE80211_CHANCTX_CHANGE_WIDTH;
-@@ -554,8 +552,6 @@ static void _ieee80211_change_chanctx(st
+@@ -556,8 +554,6 @@ static void _ieee80211_change_chanctx(st
  	/* check if min chanctx also changed */
  	changed |= _ieee80211_recalc_chanctx_min_def(local, ctx, rsvd_for, false);
  
@@ -42,7 +42,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  	drv_change_chanctx(local, ctx, changed);
  
  	/* check if BW is wider */
-@@ -694,8 +690,6 @@ static int ieee80211_add_chanctx(struct
+@@ -697,8 +693,6 @@ static int ieee80211_add_chanctx(struct
  
  	lockdep_assert_wiphy(local->hw.wiphy);
  
@@ -51,7 +51,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  	/* turn idle off *before* setting channel -- some drivers need that */
  	changed = ieee80211_idle_off(local);
  	if (changed)
-@@ -748,8 +742,6 @@ static void ieee80211_del_chanctx(struct
+@@ -751,8 +745,6 @@ static void ieee80211_del_chanctx(struct
  
  	if (!skip_idle_recalc)
  		ieee80211_recalc_idle(local);
@@ -62,7 +62,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  static void ieee80211_free_chanctx(struct ieee80211_local *local,
 --- a/net/mac80211/ieee80211_i.h
 +++ b/net/mac80211/ieee80211_i.h
-@@ -1609,8 +1609,6 @@ struct ieee80211_local {
+@@ -1611,8 +1611,6 @@ struct ieee80211_local {
  
  	/* extended capabilities provided by mac80211 */
  	u8 ext_capa[8];
@@ -71,7 +71,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  };
  
  static inline struct ieee80211_sub_if_data *
-@@ -2705,10 +2703,6 @@ void ieee80211_process_neg_ttlm_res(stru
+@@ -2730,10 +2728,6 @@ void ieee80211_process_neg_ttlm_res(stru
  int ieee80211_req_neg_ttlm(struct ieee80211_sub_if_data *sdata,
  			   struct cfg80211_ttlm_params *params);
  
@@ -84,7 +84,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  #define VISIBLE_IF_MAC80211_KUNIT
 --- a/net/mac80211/main.c
 +++ b/net/mac80211/main.c
-@@ -1579,8 +1579,6 @@ int ieee80211_register_hw(struct ieee802
+@@ -1581,8 +1581,6 @@ int ieee80211_register_hw(struct ieee802
  	debugfs_hw_add(local);
  	rate_control_add_debugfs(local);
  

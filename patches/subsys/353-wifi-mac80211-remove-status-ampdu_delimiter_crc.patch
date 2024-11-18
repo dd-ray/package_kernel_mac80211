@@ -9,7 +9,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
 
 --- a/include/net/mac80211.h
 +++ b/include/net/mac80211.h
-@@ -1452,8 +1452,6 @@ ieee80211_tx_info_clear_status(struct ie
+@@ -1448,8 +1448,6 @@ ieee80211_tx_info_clear_status(struct ie
   * @RX_FLAG_AMPDU_IS_LAST: this subframe is the last subframe of the A-MPDU
   * @RX_FLAG_AMPDU_DELIM_CRC_ERROR: A delimiter CRC error has been detected
   *	on this subframe
@@ -18,7 +18,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
   * @RX_FLAG_MIC_STRIPPED: The mic was stripped of this packet. Decryption was
   *	done by the hardware
   * @RX_FLAG_ONLY_MONITOR: Report frame only to monitor interfaces without
-@@ -1525,7 +1523,7 @@ enum mac80211_rx_flags {
+@@ -1521,7 +1519,7 @@ enum mac80211_rx_flags {
  	RX_FLAG_AMPDU_LAST_KNOWN	= BIT(12),
  	RX_FLAG_AMPDU_IS_LAST		= BIT(13),
  	RX_FLAG_AMPDU_DELIM_CRC_ERROR	= BIT(14),
@@ -27,7 +27,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  	RX_FLAG_MACTIME			= BIT(16) | BIT(17),
  	RX_FLAG_MACTIME_PLCP_START	= 1 << 16,
  	RX_FLAG_MACTIME_START		= 2 << 16,
-@@ -1622,7 +1620,6 @@ enum mac80211_rx_encoding {
+@@ -1618,7 +1616,6 @@ enum mac80211_rx_encoding {
   * @rx_flags: internal RX flags for mac80211
   * @ampdu_reference: A-MPDU reference number, must be a different value for
   *	each A-MPDU but the same for each subframe within one A-MPDU
@@ -35,7 +35,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
   * @zero_length_psdu_type: radiotap type of the 0-length PSDU
   * @link_valid: if the link which is identified by @link_id is valid. This flag
   *	is set only when connection is MLO.
-@@ -1660,7 +1657,6 @@ struct ieee80211_rx_status {
+@@ -1656,7 +1653,6 @@ struct ieee80211_rx_status {
  	s8 signal;
  	u8 chains;
  	s8 chain_signal[IEEE80211_MAX_CHAINS];
@@ -45,7 +45,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  };
 --- a/net/mac80211/rx.c
 +++ b/net/mac80211/rx.c
-@@ -512,18 +512,13 @@ ieee80211_add_rx_radiotap_header(struct
+@@ -508,18 +508,13 @@ ieee80211_add_rx_radiotap_header(struct
  			flags |= IEEE80211_RADIOTAP_AMPDU_IS_LAST;
  		if (status->flag & RX_FLAG_AMPDU_DELIM_CRC_ERROR)
  			flags |= IEEE80211_RADIOTAP_AMPDU_DELIM_CRC_ERR;

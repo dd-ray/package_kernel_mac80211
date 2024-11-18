@@ -20,7 +20,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  	struct wil6210_priv *wil = wiphy_to_wil(wiphy);
 --- a/drivers/net/wireless/marvell/libertas/cfg.c
 +++ b/drivers/net/wireless/marvell/libertas/cfg.c
-@@ -490,6 +490,7 @@ static int lbs_add_wps_enrollee_tlv(u8 *
+@@ -486,6 +486,7 @@ static int lbs_add_wps_enrollee_tlv(u8 *
   */
  
  static int lbs_cfg_set_monitor_channel(struct wiphy *wiphy,
@@ -88,7 +88,7 @@ Signed-off-by: Felix Fietkau <nbd@nbd.name>
  bool cfg80211_any_usable_channels(struct wiphy *wiphy,
 --- a/net/wireless/core.h
 +++ b/net/wireless/core.h
-@@ -510,6 +510,7 @@ static inline unsigned int elapsed_jiffi
+@@ -518,6 +518,7 @@ static inline unsigned int elapsed_jiffi
  }
  
  int cfg80211_set_monitor_channel(struct cfg80211_registered_device *rdev,

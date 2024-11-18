@@ -18,7 +18,7 @@ Signed-off-by: Karthikeyan Periyasamy <quic_periyasa@quicinc.com>
 
 --- a/net/wireless/core.c
 +++ b/net/wireless/core.c
-@@ -615,16 +615,20 @@ use_default_name:
+@@ -599,16 +599,20 @@ use_default_name:
  }
  EXPORT_SYMBOL(wiphy_new_nm);
  
@@ -42,7 +42,7 @@ Signed-off-by: Karthikeyan Periyasamy <quic_periyasa@quicinc.com>
  
  		/*
  		 * Combinations with just one interface aren't real,
-@@ -637,9 +641,13 @@ static int wiphy_verify_combinations(str
+@@ -621,9 +625,13 @@ static int wiphy_verify_combinations(str
  		if (WARN_ON(!c->num_different_channels))
  			return -EINVAL;
  
@@ -59,7 +59,7 @@ Signed-off-by: Karthikeyan Periyasamy <quic_periyasa@quicinc.com>
  			return -EINVAL;
  
  		if (WARN_ON(!c->n_limits))
-@@ -660,13 +668,21 @@ static int wiphy_verify_combinations(str
+@@ -644,13 +652,21 @@ static int wiphy_verify_combinations(str
  			if (WARN_ON(wiphy->software_iftypes & types))
  				return -EINVAL;
  
@@ -85,7 +85,7 @@ Signed-off-by: Karthikeyan Periyasamy <quic_periyasa@quicinc.com>
  				    c->limits[j].max > 1))
  				return -EINVAL;
  
-@@ -690,6 +706,34 @@ static int wiphy_verify_combinations(str
+@@ -674,6 +690,34 @@ static int wiphy_verify_combinations(str
  	return 0;
  }
  
