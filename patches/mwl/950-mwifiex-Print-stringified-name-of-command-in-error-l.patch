@@ -139,7 +139,7 @@ Signed-off-by: Pali Rohár <pali@kernel.org>
  			mwifiex_init_fw_complete(adapter);
  			return -1;
  		} else if (adapter->last_init_cmd == cmdresp_no)
-@@ -1285,8 +1365,8 @@ mwifiex_process_sleep_confirm_resp(struc
+@@ -1287,8 +1367,8 @@ mwifiex_process_sleep_confirm_resp(struc
  
  	if (command != HostCmd_CMD_802_11_PS_MODE_ENH) {
  		mwifiex_dbg(adapter, ERROR,

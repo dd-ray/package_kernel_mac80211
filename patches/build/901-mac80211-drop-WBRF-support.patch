@@ -62,7 +62,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  static void ieee80211_free_chanctx(struct ieee80211_local *local,
 --- a/net/mac80211/ieee80211_i.h
 +++ b/net/mac80211/ieee80211_i.h
-@@ -1611,8 +1611,6 @@ struct ieee80211_local {
+@@ -1609,8 +1609,6 @@ struct ieee80211_local {
  
  	/* extended capabilities provided by mac80211 */
  	u8 ext_capa[8];
@@ -71,7 +71,7 @@ Signed-off-by: sbwml <admin@cooluc.com>
  };
  
  static inline struct ieee80211_sub_if_data *
-@@ -2730,10 +2728,6 @@ void ieee80211_process_neg_ttlm_res(stru
+@@ -2761,10 +2759,6 @@ void ieee80211_process_neg_ttlm_res(stru
  int ieee80211_req_neg_ttlm(struct ieee80211_sub_if_data *sdata,
  			   struct cfg80211_ttlm_params *params);
  

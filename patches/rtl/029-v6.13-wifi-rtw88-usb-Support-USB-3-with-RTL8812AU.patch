@@ -14,7 +14,7 @@ Link: https://patch.msgid.link/19cda72b-f1f1-4b69-8369-0e4376b646bf@gmail.com
 
 --- a/drivers/net/wireless/realtek/rtw88/usb.c
 +++ b/drivers/net/wireless/realtek/rtw88/usb.c
-@@ -929,6 +929,32 @@ static void rtw_usb_intf_deinit(struct r
+@@ -930,6 +930,32 @@ static void rtw_usb_intf_deinit(struct r
  	usb_set_intfdata(intf, NULL);
  }
  
@@ -47,7 +47,7 @@ Link: https://patch.msgid.link/19cda72b-f1f1-4b69-8369-0e4376b646bf@gmail.com
  static int rtw_usb_switch_mode_new(struct rtw_dev *rtwdev)
  {
  	enum usb_device_speed cur_speed;
-@@ -978,11 +1004,22 @@ static int rtw_usb_switch_mode_new(struc
+@@ -979,11 +1005,22 @@ static int rtw_usb_switch_mode_new(struc
  	return 1;
  }
  
@@ -71,7 +71,7 @@ Link: https://patch.msgid.link/19cda72b-f1f1-4b69-8369-0e4376b646bf@gmail.com
  		return 0;
  
  	if (!rtwdev->efuse.usb_mode_switch) {
-@@ -997,7 +1034,10 @@ static int rtw_usb_switch_mode(struct rt
+@@ -998,7 +1035,10 @@ static int rtw_usb_switch_mode(struct rt
  		return 0;
  	}
  

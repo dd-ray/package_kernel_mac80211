@@ -64,7 +64,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  		*((u32 *)skb->cb) = pkt_offset;
 --- a/drivers/net/wireless/realtek/rtw88/usb.c
 +++ b/drivers/net/wireless/realtek/rtw88/usb.c
-@@ -585,7 +585,7 @@ static void rtw_usb_rx_handler(struct wo
+@@ -586,7 +586,7 @@ static void rtw_usb_rx_handler(struct wo
  				goto skip_packet;
  			}
  
@@ -73,7 +73,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  			if (!skb) {
  				rtw_dbg(rtwdev, RTW_DBG_USB,
  					"failed to allocate RX skb of size %u\n",
-@@ -612,7 +612,11 @@ skip_packet:
+@@ -613,7 +613,11 @@ skip_packet:
  			rx_desc += next_pkt;
  		} while (rx_desc + pkt_desc_sz < rx_skb->data + rx_skb->len);
  
@@ -86,7 +86,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  	}
  }
  
-@@ -621,23 +625,57 @@ static void rtw_usb_read_port_complete(s
+@@ -622,23 +626,57 @@ static void rtw_usb_read_port_complete(s
  static void rtw_usb_rx_resubmit(struct rtw_usb *rtwusb, struct rx_usb_ctrl_block *rxcb)
  {
  	struct rtw_dev *rtwdev = rtwusb->rtwdev;
@@ -149,7 +149,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  	}
  }
  
-@@ -653,8 +691,7 @@ static void rtw_usb_read_port_complete(s
+@@ -654,8 +692,7 @@ static void rtw_usb_read_port_complete(s
  		    urb->actual_length < 24) {
  			rtw_err(rtwdev, "failed to get urb length:%d\n",
  				urb->actual_length);
@@ -159,7 +159,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  		} else {
  			skb_put(skb, urb->actual_length);
  			skb_queue_tail(&rtwusb->rx_queue, skb);
-@@ -662,6 +699,8 @@ static void rtw_usb_read_port_complete(s
+@@ -663,6 +700,8 @@ static void rtw_usb_read_port_complete(s
  		}
  		rtw_usb_rx_resubmit(rtwusb, rxcb);
  	} else {
@@ -168,7 +168,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  		switch (urb->status) {
  		case -EINVAL:
  		case -EPIPE:
-@@ -679,8 +718,6 @@ static void rtw_usb_read_port_complete(s
+@@ -680,8 +719,6 @@ static void rtw_usb_read_port_complete(s
  			rtw_err(rtwdev, "status %d\n", urb->status);
  			break;
  		}
@@ -177,7 +177,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  	}
  }
  
-@@ -868,16 +905,26 @@ static struct rtw_hci_ops rtw_usb_ops =
+@@ -869,16 +906,26 @@ static struct rtw_hci_ops rtw_usb_ops =
  static int rtw_usb_init_rx(struct rtw_dev *rtwdev)
  {
  	struct rtw_usb *rtwusb = rtw_get_usb_priv(rtwdev);
@@ -205,7 +205,7 @@ Signed-off-by: Bitterblue Smith <rtl8821cerfe2@gmail.com>
  
  	return 0;
  }
-@@ -902,6 +949,8 @@ static void rtw_usb_deinit_rx(struct rtw
+@@ -903,6 +950,8 @@ static void rtw_usb_deinit_rx(struct rtw
  
  	flush_workqueue(rtwusb->rxwq);
  	destroy_workqueue(rtwusb->rxwq);
