@@ -10,13 +10,13 @@ include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=mac80211
 
-PKG_VERSION:=6.13-rc2
+PKG_VERSION:=6.13.2
 PKG_RELEASE:=1
 PKG_LICENSE:=GPL-2.0-only
 PKG_LICENSE_FILES:=COPYING
 
-PKG_SOURCE_URL:=https://github.com/sbwml/backports/releases/download/v$(PKG_VERSION)
-PKG_HASH:=41fa9c29496f3af71572740b3d77422ad1858b8bfb9eeed3389da91f34ee6226
+PKG_SOURCE_URL:=https://github.com/dd-ray/backports/releases/download/v$(PKG_VERSION)
+PKG_HASH:=0421bae540dc47966874d111291bb5c03569ee23fddb581146d575deec07e871
 
 PKG_SOURCE:=backports-$(PKG_VERSION).tar.xz
 PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/$(if $(BUILD_VARIANT),$(PKG_NAME)-$(BUILD_VARIANT)/)backports-$(PKG_VERSION)
